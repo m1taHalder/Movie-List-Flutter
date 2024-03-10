@@ -3,7 +3,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-
 import 'movie_detail.dart';
 
 class MovieList extends StatefulWidget {
@@ -56,7 +55,7 @@ class MovieListState extends State<MovieList> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -87,8 +86,9 @@ class MovieListState extends State<MovieList> {
 
 Future getJson() async {
   //var apiKey = "3354c6563712f6717437182b5fa0e039";
- // 'http://api.themoviedb.org/3/discover/movie?api_key=3354c6563712f6717437182b5fa0e039';
-  var url = Uri.parse('http://api.themoviedb.org/3/discover/movie?api_key=3354c6563712f6717437182b5fa0e039');
+  // 'http://api.themoviedb.org/3/discover/movie?api_key=3354c6563712f6717437182b5fa0e039';
+  var url = Uri.parse(
+      'http://api.themoviedb.org/3/discover/movie?api_key=3354c6563712f6717437182b5fa0e039');
   http.Response response = await http.get(url);
   try {
     if (response.statusCode == 200) {
@@ -102,7 +102,7 @@ Future getJson() async {
     return 'failed';
   }
   //var response = await http.get(url);
- // return json.decode(response.body);
+  // return json.decode(response.body);
 }
 
 class MovieTitle extends StatelessWidget {
@@ -113,11 +113,11 @@ class MovieTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
       child: Text(
         'Top Rated',
         style: TextStyle(
-            fontSize: 40.0,
+            fontSize: 18.0,
             color: mainColor,
             fontWeight: FontWeight.bold,
             fontFamily: 'Arvo'),
@@ -144,7 +144,7 @@ class MovieCell extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(0.0),
               child: Container(
-                margin: const EdgeInsets.all(16.0),
+                margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.grey,
@@ -167,14 +167,14 @@ class MovieCell extends StatelessWidget {
             ),
             Expanded(
                 child: Container(
-              margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+              margin: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     movies[i]['title'],
                     style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         fontFamily: 'Arvo',
                         fontWeight: FontWeight.bold,
                         color: mainColor),
